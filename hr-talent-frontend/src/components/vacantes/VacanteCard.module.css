@@ -1,0 +1,28 @@
+.card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  transition: box-shadow .2s, transform .2s;
+}
+.card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.12); transform: translateY(-2px); }
+
+.header { display: flex; justify-content: space-between; align-items: center; }
+
+.modalidad { font-size: .75rem; color: #64748b; text-transform: capitalize; }
+
+.badge {
+  padding: .2rem .6rem;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 600;
+}
+
+.titulo { font-size: 1rem; font-weight: 700; color: #1e293b; }
+.depto  { font-size: .8rem; color: #475569; }
+.desc   { font-size: .8rem; color: #64748b; line-height: 1.5; flex: 1; }
+.salario{ font-size: .85rem; font-weight: 600; color: #16a34a; margin-top: auto; }

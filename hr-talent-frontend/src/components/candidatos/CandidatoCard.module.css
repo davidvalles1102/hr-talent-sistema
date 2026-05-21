@@ -1,0 +1,76 @@
+.card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  transition: box-shadow .2s, transform .2s;
+}
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  transform: translateY(-2px);
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.nombre    { font-size: 1rem; font-weight: 600; color: #1e293b; }
+.puesto    { font-size: .8rem; color: #2563eb; font-weight: 500; }
+.email     { font-size: .8rem; color: #64748b; }
+
+.meta {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  font-size: .75rem;
+  color: #64748b;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.badge {
+  padding: .25rem .6rem;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+.btnEditar {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  padding: .25rem .6rem;
+  border-radius: 6px;
+  font-size: .75rem;
+  cursor: pointer;
+}
+.btnEditar:hover { background: #2563eb; color: #fff; }
+
+.btnEliminar {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  padding: .25rem .6rem;
+  border-radius: 6px;
+  font-size: .75rem;
+  cursor: pointer;
+}
+.btnEliminar:hover { background: #dc2626; color: #fff; }

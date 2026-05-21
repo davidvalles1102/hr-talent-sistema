@@ -1,0 +1,17 @@
+{
+  "name": "hr-talent-frontend",
+  "version": "1.0.0",
+  "description": "Frontend MVC - Sistema de Evaluacion RRHH",
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "next": "^16.2.6",
+    "react": "^18",
+    "react-dom": "^18",
+    "reactstrap": "^9.2.2"
+  }
+}
