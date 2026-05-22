@@ -1,8 +1,6 @@
-// COMPONENTE — VacanteCard (sin librerías externas)
-// PROPS: vacante {Vacante}
 import styles from './VacanteCard.module.css';
 
-export default function VacanteCard({ vacante }) {
+export default function VacanteCard({ vacante, onEditar }) {
   const badge = vacante.estadoBadge;
   return (
     <div className={styles.card}>
@@ -15,7 +13,14 @@ export default function VacanteCard({ vacante }) {
       <h3 className={styles.titulo}>{vacante.titulo}</h3>
       <p className={styles.depto}>🏢 {vacante.departamento}</p>
       <p className={styles.desc}>{vacante.descripcion}</p>
-      <div className={styles.salario}>💰 {vacante.rangoSalario}</div>
+      <div className={styles.footer}>
+        <span className={styles.salario}>💰 {vacante.rangoSalario}</span>
+        {onEditar && (
+          <button className={styles.btnEditar} onClick={() => onEditar(vacante)}>
+            Editar
+          </button>
+        )}
+      </div>
     </div>
   );
 }

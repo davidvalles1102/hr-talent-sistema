@@ -28,4 +28,18 @@ export const vacantesService = {
     const json = await res.json();
     return json.data;
   },
+
+  async update(id, data) {
+    const res = await fetch(`${API}/vacantes/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.errors?.[0]?.mensaje || err.error || 'Error al actualizar');
+    }
+    const json = await res.json();
+    return json.data;
+  },
 };

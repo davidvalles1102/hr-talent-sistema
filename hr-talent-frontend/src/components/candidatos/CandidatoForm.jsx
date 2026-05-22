@@ -1,6 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './CandidatoForm.module.css';
+import { vacantesService } from '../../services/vacantesService';
 
 const VACIO = {
   nombre: '', apellido: '', email: '', telefono: '',
@@ -24,8 +25,15 @@ export default function CandidatoForm({ onCrear, onActualizar, candidatoInicial,
         }
       : VACIO
   );
-  const [error, setError] = useState('');
-  const [ok,    setOk]    = useState(false);
+  const [error,           setError]           = useState('');
+  const [ok,              setOk]              = useState(false);
+  const [vacantesAbiertas, setVacantesAbiertas] = useState([]);
+
+  useEffect(() => {
+    vacantesService.getAll()
+      .then(data => setVacantesAbiertas(data.filter(v => v.estado === 'abierta')))
+      .catch(() => {});
+  }, []);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -78,7 +86,16 @@ export default function CandidatoForm({ onCrear, onActualizar, candidatoInicial,
         </div>
         <div className={styles.campo}>
           <label>Puesto de Interés *</label>
-          <input name="puesto_interes" value={form.puesto_interes} onChange={handleChange} required />
+          {vacantesAbiertas.length > 0 ? (
+            <select name="puesto_interes" value={form.puesto_interes} onChange={handleChange} required>
+              <option value="">Seleccionar vacante...</option>
+              {vacantesAbiertas.map(v => (
+                <option key={v.id} value={v.titulo}>{v.titulo} — {v.departamento}</option>
+              ))}
+            </select>
+          ) : (
+            <input name="puesto_interes" value={form.puesto_interes} onChange={handleChange} required placeholder="Ej: Desarrollador Frontend" />
+          )}
         </div>
         <div className={styles.campo}>
           <label>Nivel Educativo</label>

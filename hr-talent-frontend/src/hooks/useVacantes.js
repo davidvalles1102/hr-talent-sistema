@@ -25,5 +25,17 @@ export function useVacantes() {
     fetchVacantes();
   }, [fetchVacantes]);
 
-  return { vacantes, loading, error, refetch: fetchVacantes };
+  const crearVacante = useCallback(async (formData) => {
+    const nueva = await vacantesService.create(formData);
+    setVacantes(prev => [new Vacante(nueva), ...prev]);
+    return nueva;
+  }, []);
+
+  const actualizarVacante = useCallback(async (id, formData) => {
+    const actualizada = await vacantesService.update(id, formData);
+    setVacantes(prev => prev.map(v => v.id === id ? new Vacante(actualizada) : v));
+    return actualizada;
+  }, []);
+
+  return { vacantes, loading, error, crearVacante, actualizarVacante, refetch: fetchVacantes };
 }
