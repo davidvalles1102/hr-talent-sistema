@@ -1,7 +1,8 @@
 .navbar {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: .5rem 2rem;
   background: #1e293b;
   color: #fff;
   padding: .875rem 2rem;
@@ -19,9 +20,22 @@
   font-weight: 700;
   color: #fff;
   white-space: nowrap;
+  flex: 1;
 }
 
 .logo { font-size: 1.4rem; }
+
+.hamburger {
+  display: none;
+  background: none;
+  border: 1px solid #334155;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: .3rem .6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
 .links {
   display: flex;
@@ -50,4 +64,46 @@
   padding-left: .75rem;
   margin-left: .25rem;
   border-left: 1px solid #334155;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: .75rem 1rem;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .125rem;
+    padding: .5rem 0;
+    border-top: 1px solid #334155;
+  }
+
+  .links.open {
+    display: flex;
+  }
+
+  .links li {
+    width: 100%;
+  }
+
+  .links a {
+    display: block;
+    width: 100%;
+    padding: .5rem .75rem;
+  }
+
+  .separator {
+    border-left: none;
+    padding-left: .75rem;
+    margin-left: 0;
+    padding-top: .75rem;
+    width: 100%;
+  }
 }

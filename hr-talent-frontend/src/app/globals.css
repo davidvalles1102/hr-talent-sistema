@@ -107,3 +107,15 @@ input:focus, select:focus, textarea:focus {
   color: var(--text-muted);
   font-size: 1.1rem;
 }
+
+@media (max-width: 640px) {
+  .page-wrapper {
+    padding: 1.25rem 1rem;
+  }
+  .page-title {
+    font-size: 1.35rem;
+  }
+  .card {
+    padding: 1rem;
+  }
+}
