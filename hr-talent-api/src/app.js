@@ -11,7 +11,9 @@ const reportesRoutes = require('./routes/reportes.routes');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://hr-talent-sistema.vercel.app',
+}));
 app.use(express.json());
 
 app.use('/candidatos', candidatosRoutes);
